@@ -1061,7 +1061,11 @@ Proof.
 Theorem plus_id_exercise : forall n m o : nat,
   n = m -> m = o -> n + m = m + o.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n m o.
+  intros H1 H2.
+  rewrite -> H1.
+  rewrite <- H2.
+  reflexivity. Qed.
 (** [] *)
 
 (** The [Admitted] command tells Coq that we want to skip trying
@@ -1109,7 +1113,11 @@ Proof.
 Theorem mult_n_1 : forall p : nat,
   p * 1 = p.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros p.
+  rewrite <- mult_n_Sm.
+  rewrite <- mult_n_O.
+  rewrite -> plus_O_n.
+  reflexivity. Qed.
 
 (** [] *)
 
