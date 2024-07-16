@@ -299,12 +299,15 @@ Example test_nonzeros:
   nonzeros [0;1;0;2;3;0;0] = [1;2;3].
 Proof. simpl. reflexivity. Qed.
 
-Fixpoint oddmembers (l:natlist) : natlist
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Fixpoint oddmembers (l:natlist) : natlist :=
+  match l with
+  | nil => nil
+  | h::t => if even(h) then oddmembers(t) else h::oddmembers(t)
+  end.
 
 Example test_oddmembers:
   oddmembers [0;1;0;2;3;0;0] = [1;3].
-  (* FILL IN HERE *) Admitted.
+Proof. simpl. reflexivity. Qed.
 
 (** For [countoddmembers], we're giving you a header that uses keyword
     [Definition] instead of [Fixpoint].  The point of stating the
