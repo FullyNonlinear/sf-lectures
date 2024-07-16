@@ -256,7 +256,7 @@ Theorem eqb_refl : forall n : nat,
 Proof.
   intros n. induction n as [|n'].
   - simpl. reflexivity.
-  - simpl.
+  - simpl. rewrite IHn'. reflexivity. Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard, optional (even_S)
@@ -273,7 +273,7 @@ Theorem even_S : forall n : nat,
 Proof.
   intros n. induction n as [|n'].
   - simpl. reflexivity.
-  - rewrite IHn'. simpl. rewrite negb_involutive. reflexivity.
+  - rewrite IHn'. simpl. rewrite negb_involutive. reflexivity. Qed.
 (** [] *)
 
 (** **** Exercise: 1 star, standard, optional (destruct_induction)
