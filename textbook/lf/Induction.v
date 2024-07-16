@@ -241,7 +241,10 @@ Fixpoint double (n:nat) :=
 
 Lemma double_plus : forall n, double n = n + n .
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n. induction n as [|n'].
+  - simpl. reflexivity. 
+  - simpl. rewrite add_comm. rewrite IHn'. simpl. reflexivity. Qed.
+
 (** [] *)
 
 (** **** Exercise: 2 stars, standard (eqb_refl)
@@ -251,7 +254,9 @@ Proof.
 Theorem eqb_refl : forall n : nat,
   (n =? n) = true.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n. induction n as [|n'].
+  - simpl. reflexivity.
+  - simpl.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard, optional (even_S)
@@ -266,7 +271,9 @@ Proof.
 Theorem even_S : forall n : nat,
   even (S n) = negb (even n).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n. induction n as [|n'].
+  - simpl. reflexivity.
+  - rewrite IHn'. simpl. rewrite negb_involutive. reflexivity.
 (** [] *)
 
 (** **** Exercise: 1 star, standard, optional (destruct_induction)
