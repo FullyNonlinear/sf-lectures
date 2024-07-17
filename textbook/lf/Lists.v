@@ -1144,7 +1144,7 @@ Theorem update_neq :
   forall (d : partial_map) (x y : id) (o: nat),
     eqb_id x y = false -> find x (update d y o) = find x d.
 Proof.
-  intros d x y o. simpl. intros H. rewrite H. reflexivity.
+  intros d x y o. simpl. intros H. rewrite H. reflexivity. Qed.
 (** [] *)
 End PartialMap.
 
