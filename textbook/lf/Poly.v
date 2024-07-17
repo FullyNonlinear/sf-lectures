@@ -387,17 +387,23 @@ Definition list123''' := [1; 2; 3].
 Theorem app_nil_r : forall (X:Type), forall l:list X,
   l ++ [] = l.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros X l. induction l as [|l'].
+  - simpl. reflexivity.
+  - simpl. rewrite IHl. reflexivity. Qed. 
 
 Theorem app_assoc : forall A (l m n:list A),
   l ++ m ++ n = (l ++ m) ++ n.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros A l m n. induction l as [|l'].
+  - simpl. reflexivity.
+  - simpl. rewrite IHl. reflexivity. Qed.   
 
 Lemma app_length : forall (X:Type) (l1 l2 : list X),
   length (l1 ++ l2) = length l1 + length l2.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros X l1 l2. induction l1 as [|h1 t1].
+  - simpl. reflexivity.
+  - simpl. rewrite IHt1. reflexivity. Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard (more_poly_exercises)
